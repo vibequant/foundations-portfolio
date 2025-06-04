@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Analytics Portfolio - Meredith Mountjoy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 60px 0;
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .header p:last-child {
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+        
+        .intro {
+            background: rgba(255,255,255,0.98);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .intro h2 {
+            color: #764ba2;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .case-studies {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .case-study {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .case-study:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .case-study h2 {
+            color: #764ba2;
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .metric {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(102,126,234,0.3);
+        }
+        
+        .metric-value {
+            font-size: 1.4em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        
+        .metric-label {
+            font-size: 0.95em;
+            opacity: 0.9;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+        
+        .key-insights {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+        
+        .key-insights h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+        
+        .key-insights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .key-insights li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .key-insights li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .data-viz {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+        
+        .chart-placeholder {
+            height: 200px;
+            background: linear-gradient(45deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #6c757d;
+            font-style: italic;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .skills {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .skills h2 {
+            color: #764ba2;
+            margin-bottom: 20px;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>How Data Can Unlock Your Artists</h1>
+            <p>VibeQuant + Foundations Management Partnership</p>
+            <p><strong>Meredith Mountjoy</strong> | Former Google Researcher • Y Combinator Finalist • Strategic Data Partnership</p>
+        </div>
+        
+        <div class="intro">
+            <h2>About Meredith Mountjoy - Founder, VibeQuant</h2>
+            <p>Former Google quantitative researcher and top 5% Y Combinator finalist who chose to work intimately with music industry partners, turning scattered data into clear, actionable insights. I help artist teams, venues, and labels uncover hidden opportunities in performance, audience behavior, and revenue patterns.</p>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea;">
+                <h3 style="color: #764ba2; margin-bottom: 15px;">What Industry Partners Are Saying</h3>
+                
+                <div style="margin-bottom: 20px; padding: 15px; background: white; border-radius: 8px; border-left: 3px solid #667eea;">
+                    <p style="font-style: italic; margin-bottom: 10px; color: #333;">"Meredith took an extremely detailed look at raw and unorganized data and was able to sort it and explain it in a way that was very simple and helpful to my team... She extracted trends that nobody else in my industry had previously pointed out or correlated to direct sales."</p>
+                    <p style="font-weight: bold; color: #764ba2; font-size: 0.9em;">— Gold Theory Records (Turnstile, Knocked Loose)</p>
+                </div>
+                
+                <div style="padding: 15px; background: white; border-radius: 8px; border-left: 3px solid #667eea;">
+                    <p style="font-style: italic; margin-bottom: 10px; color: #333;">"Working with Meredith transformed how we approach artist development. Her analysis revealed booking patterns we never noticed and helped us improve our booking success rates significantly. She doesn't just provide data, she provides strategy that actually works in the real world."</p>
+                    <p style="font-weight: bold; color: #764ba2; font-size: 0.9em;">— Nina Sacco, Founder, Artist Liaison Agency</p>
+                </div>
+            </div>
+            
+            <p><strong>Proven Track Record:</strong> Labels (Gold Theory), Promoters (Psyched! Radio SF), Agencies (Artist Liaison), Venues (Crybaby, Bottom of the Hill). From 500-cap venues to multi-platinum touring acts, I transform complex data relationships into actionable insights that drive measurable results.</p>
+            
+            <div class="metric-grid">
+                <div class="metric">
+                    <span class="metric-value">Tour Optimization</span>
+                    <span class="metric-label">Optimizing booking strategy, both in tour planning and in real-time, to maximize ticket sales and optimize marketing expenditure</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">Venue-Artist Fit Analysis</span>
+                    <span class="metric-label">Analyzing venue audience bases and artist development stages to identify the right opportunities for artists at every level</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">Promoter Partnership Strategy</span>
+                    <span class="metric-label">Optimizing pitches and developing A/B test experiments to place more holds and secure more shows at local venues</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">Booking Intelligence Framework</span>
+                    <span class="metric-label">Day-of-week optimization, genre-format pairing, seasonal strategy, and dynamic pricing to maximize venue profitability</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="case-studies">
+            <div class="case-study">
+                <h2>Gold Theory Records - Knocked Loose Tour Analysis</h2>
+                <p><strong>Challenge:</strong> Multi-tour campaign with significant budget disparities and inconsistent performance patterns.</p>
+                
+                <div class="data-viz">
+                    <h4>Marketing Budget vs Performance (Spring Tour)</h4>
+                    <img src="./images/marketing-spend.png" alt="Marketing budget correlation analysis showing minimal relationship between spend and venue fill" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 10px auto; display: block;">
+                    <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 10px; font-style: italic;">
+                        Counterintuitive finding: Higher marketing spend doesn't guarantee better performance
+                    </p>
+                </div>
+                
+                <div class="key-insights">
+                    <h3>Key Discoveries</h3>
+                    <ul>
+                        <li><strong>The "Surge Effect":</strong> Shows with 2-3 early marketing surges achieved 80-95%+ fill rates vs 38% with no surges</li>
+                        <li><strong>Channel Optimization:</strong> Facebook/Instagram (+35%), Web Advertising (+15%), Spotify (+5%) drove highest ROI</li>
+                        <li><strong>Timing Intelligence:</strong> First month performance predicted 79% of final venue fill</li>
+                        <li><strong>Budget Efficiency:</strong> Strategic deployment mattered more than total spend amount</li>
+                    </ul>
+                </div>
+                
+                <div class="data-viz">
+                    <h4>The "Surge Effect" - Marketing Spikes Drive Success</h4>
+                    <img src="./images/surges.png" alt="Box plot showing dramatic venue fill improvements from 38% (0 surges) to 95%+ (3+ surges)" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 10px auto; display: block;">
+                    <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 10px; font-style: italic;">
+                        Shows with 2-3 strategic marketing surges achieve 80-95%+ fill rates vs 38% with no surges
+                    </p>
+                </div>
+                
+                <p><strong>Strategic Recommendations:</strong> Implemented front-loaded marketing strategy with 60-70% budget concentration in first 14 days, automated early warning dashboard, and A/B testing framework for platform optimization.</p>
+            </div>
+            
+            <div class="case-study">
+                <h2>Bottom of the Hill - Venue Intelligence Framework</h2>
+                <p><strong>Challenge:</strong> Optimize booking strategy across venue formats and genres to maximize profitability while supporting emerging artists.</p>
+                
+                <div class="metric-grid">
+                    <div class="metric">
+                        <span class="metric-value">3x Price Sensitivity Gap</span>
+                        <span class="metric-label">Emerging artists (-0.89) vs established (-0.31)<br>Price elasticity analysis</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">+38.4% Revenue Impact</span>
+                        <span class="metric-label">Electronic/Dance shows with 21+ format<br>Genre-format optimization</span>
+                    </div>
+                </div>
+                
+                <div class="data-viz">
+                    <h4>Price Elasticity by Artist Tier</h4>
+                    <img src="./images/price-elasticity.png" alt="Price elasticity analysis showing 3x sensitivity gap between emerging and established artists" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 10px auto; display: block;">
+                    <p style="text-align: center; font-size: 0.9em; color: #666; margin-top: 10px; font-style: italic;">
+                        Emerging artists show 3x higher price sensitivity than established acts
+                    </p>
+                </div>
+                
+                <div class="key-insights">
+                    <h3>Strategic Insights</h3>
+                    <ul>
+                        <li><strong>Format Strategy:</strong> Electronic/Dance shows generate 38% higher revenue with 21+ format, while Hip-Hop optimizes as All Ages</li>
+                        <li><strong>Seasonal Intelligence:</strong> Summer allows $2 premium pricing, fall requires strategic discounting for fill rate optimization</li>
+                        <li><strong>Price Sensitivity:</strong> Emerging artists show 3x higher price elasticity than established acts, informing tiered pricing strategy</li>
+                        <li><strong>Day-of-Week Premium:</strong> Weekend shows generate 3.2-3.7x higher net revenue than weekdays across all genres</li>
+                    </ul>
+                </div>
+                
+                <div class="data-viz">
+                    <h4>Seasonal Performance Strategy</h4>
+                    <div class="chart-placeholder">
+                        Summer: Electronic/Hip-Hop focus + pricing premium<br>
+                        Winter: Balanced genre mix, standard pricing
+                    </div>
+                </div>
+                
+                <p><strong>Implementation:</strong> Developed dynamic pricing strategy, genre-specific scheduling protocols, and predictive booking framework that optimizes venue profitability while maintaining artistic diversity.</p>
+            </div>
+        </div>
+        
+        <div class="skills">
+            <h2>Strategic Project Proposals for Foundations Management</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
+                <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border-left: 5px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🎯 Cross-Artist Learning Intelligence</h3>
+                    <p style="margin-bottom: 15px;"><strong>Challenge:</strong> Chappell Roan's explosive growth, Noah Kahan's consistency, and Laufey's genre-crossing success represent different growth patterns that could inform strategy across your entire roster.</p>
+                    <p style="margin-bottom: 15px;"><strong>Proposal:</strong> Analyze booking patterns, marketing channel performance, and audience development across your top-tier artists to create playbooks for scaling emerging acts.</p>
+                    <p style="color: #667eea; font-weight: 600;">Timeline: 6-8 weeks | Impact: Accelerated artist development</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border-left: 5px solid #764ba2;">
+                    <h3 style="color: #764ba2; margin-bottom: 15px;">📊 Real-Time Tour Intelligence Dashboard</h3>
+                    <p style="margin-bottom: 15px;"><strong>Challenge:</strong> Your artists are touring constantly. Early intervention on underperforming shows saves marketing waste, while identifying scaling opportunities maximizes revenue potential.</p>
+                    <p style="margin-bottom: 15px;"><strong>Proposal:</strong> Build automated system that flags shows needing intervention AND identifies venues ready for capacity upgrades within 48 hours of sales data.</p>
+                    <p style="color: #764ba2; font-weight: 600;">Timeline: 5-6 weeks | Impact: Proactive tour optimization</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border-left: 5px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🚀 Artist Scaling Framework</h3>
+                    <p style="margin-bottom: 15px;"><strong>Challenge:</strong> When is Rebecca Black ready for 2,000-cap venues? How do you time Wilder Woods' venue upgrades? Scaling decisions are high-stakes and expensive.</p>
+                    <p style="margin-bottom: 15px;"><strong>Proposal:</strong> Develop data-driven framework for venue scaling decisions using streaming metrics, geographic demand patterns, and historical scaling success data.</p>
+                    <p style="color: #667eea; font-weight: 600;">Timeline: 7-8 weeks | Impact: Optimized scaling reduces failed upgrades</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border-left: 5px solid #764ba2;">
+                    <h3 style="color: #764ba2; margin-bottom: 15px;">🎵 Genre-Specific Marketing Optimization</h3>
+                    <p style="margin-bottom: 15px;"><strong>Challenge:</strong> Jazz (Laufey), Pop (Chappell Roan), Folk (Noah Kahan) require different marketing approaches. One-size-fits-all strategies waste budget.</p>
+                    <p style="margin-bottom: 15px;"><strong>Proposal:</strong> Create genre-specific marketing playbooks with optimal channel mix, timing, and budget allocation based on your roster's performance data.</p>
+                    <p style="color: #764ba2; font-weight: 600;">Timeline: 6-7 weeks | Impact: Genre-optimized marketing efficiency</p>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 35px; border-radius: 20px; margin-bottom: 35px; text-align: center; color: white; box-shadow: 0 15px 40px rgba(102,126,234,0.3);">
+                <h3 style="margin-bottom: 20px; font-size: 1.6em; font-weight: 700;">🎪 Immediate Impact Opportunity</h3>
+                <p style="margin-bottom: 25px; font-size: 1.15em; opacity: 0.95; line-height: 1.6;">Start with a 2-week diagnostic audit of your current marketing data to identify the highest-leverage opportunity for your roster.</p>
+                <p style="font-weight: 600; font-size: 1.15em;">→ No commitment required. Let the data show you where the biggest wins are hiding.</p>
+            </div>
+            
+            <h3 style="color: #764ba2; margin-bottom: 20px; text-align: center;">Technical Capabilities</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">Spotify Analytics Integration</span>
+                <span class="skill-tag">Social Media Attribution</span>
+                <span class="skill-tag">Geographic Demand Modeling</span>
+                <span class="skill-tag">Venue Scaling Algorithms</span>
+                <span class="skill-tag">Real-Time Alert Systems</span>
+                <span class="skill-tag">Cross-Platform Campaign Tracking</span>
+                <span class="skill-tag">Predictive Fill Rate Models</span>
+                <span class="skill-tag">Revenue Optimization Frameworks</span>
+                <span class="skill-tag">A/B Testing Infrastructure</span>
+                <span class="skill-tag">Marketing Mix Modeling</span>
+                <span class="skill-tag">Artist Development Metrics</span>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #2d1b69 0%, #667eea 100%); padding: 40px; border-radius: 20px; margin-top: 40px; text-align: center; color: white; box-shadow: 0 15px 40px rgba(102,126,234,0.4);">
+                <h3 style="font-size: 1.8em; margin-bottom: 20px; font-weight: 700;">About VibeQuant</h3>
+                <p style="font-size: 1.2em; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 400;">
+                    From Google quantitative research to Y Combinator finals to music industry transformation — we bring Silicon Valley analytical rigor to creative industry challenges, helping artist teams make data-driven decisions that preserve artistic integrity while maximizing commercial success.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
